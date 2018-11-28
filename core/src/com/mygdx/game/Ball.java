@@ -23,7 +23,7 @@ public class Ball {
         this.speed = speed;
         shape = new Rectangle(x, y, width, height);
         this.dx = 1;
-        this.dx = 1;
+        this.dy = 1;
     }
 
     public void move() {
@@ -57,6 +57,9 @@ public class Ball {
 
     public void draw(ShapeRenderer shapeBatch) {
         shapeBatch.rect(shape.x, shape.y, shape.width, shape.height);
+    }
 
+    public boolean collidesWith(Paddle p) {
+        return shape.overlaps(p.getBounds());
     }
 }
